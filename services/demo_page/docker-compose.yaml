@@ -1,0 +1,16 @@
+services:
+  demo_page:
+    image: 'nginx:1.31-alpine3.24'
+    restart: 'unless-stopped'
+
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      start_interval: 5s
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.3

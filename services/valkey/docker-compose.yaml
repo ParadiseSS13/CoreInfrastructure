@@ -1,0 +1,30 @@
+services:
+  valkey:
+    image: 'valkey/valkey:9.1.1-alpine3.24'
+    restart: 'unless-stopped'
+
+    command: [ "valkey-server", "/usr/local/etc/valkey/valkey.conf" ]
+
+    healthcheck:
+      test: [ "CMD-SHELL", "redis-cli ping | grep -q 'PONG' || exit 1" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      start_interval: 5s
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.4
+
+    configs:
+      - source: valkey
+        target: /usr/local/etc/valkey/valkey.conf
+
+    volumes:
+      - valkey_data:/data
+volumes:
+  valkey_data:
+configs:
+  valkey:
+    file: ./valkey.conf

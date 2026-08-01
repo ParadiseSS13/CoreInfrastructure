@@ -1,0 +1,24 @@
+services:
+  nginx:
+    image: 'jc21/nginx-proxy-manager:2.15.1'
+    restart: 'unless-stopped'
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81" # Admin UI port
+
+    healthcheck:
+      test: [ "CMD", "/usr/bin/check-health" ]
+      interval: 10s
+      timeout: 3s
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.2
+
+    volumes:
+      - nginx_data:/data
+      - nginx_lets_encrypt:/etc/letsencrypt
+volumes:
+  nginx_data:
+  nginx_lets_encrypt:
