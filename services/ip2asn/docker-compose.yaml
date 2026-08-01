@@ -1,0 +1,17 @@
+services:
+  ip2asn:
+    build:
+      context: https://github.com/ParadiseSS13/iptoasn-webservice.git#a714e7b122c20afeba3cdb4f31fd18933b5dc170
+      dockerfile: docker/Dockerfile
+    container_name: iptoasn
+    restart: unless-stopped
+    ports:
+      - "53661:53661"
+
+    environment:
+      - RUST_LOG=info
+      - IPTOASN_PORT=53661
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.3

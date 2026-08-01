@@ -1,5 +1,5 @@
 services:
-  nginx:
+  nginx_proxy_manager:
     image: 'jc21/nginx-proxy-manager:2.15.1'
     restart: 'unless-stopped'
     ports:
@@ -19,6 +19,7 @@ services:
     volumes:
       - nginx_data:/data
       - nginx_lets_encrypt:/etc/letsencrypt
+
 volumes:
   nginx_data:
   nginx_lets_encrypt:
