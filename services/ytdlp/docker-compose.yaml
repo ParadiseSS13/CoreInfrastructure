@@ -1,8 +1,6 @@
 services:
   ytdlp:
-    build:
-      context: https://github.com/AffectedArc07/ss13-yt-wrap.git#patch-1
-      dockerfile: Dockerfile
+    image: docker-public.paradisestation.org/absolucy/ss13-yt-wrap:20260802.190334-bb69136
     container_name: ytdlp
     restart: unless-stopped
     ports:

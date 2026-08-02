@@ -9,6 +9,16 @@ This is a fairly standard docker compose stack, and most generic instructions re
 
 ## Deployment
 
+### Important Note
+
+Some of these projects are internal and will need removing from the stack if you are doing testing. These projects are:
+
+- Nothing yet, but there will be soon(TM)
+
+Simply comment these lines out of the root `docker-compose.yaml` file and you should be able to deploy.
+
+### Deployment Instructions
+
 1. Rename any `.example` files and modify as required
 2. Deploy with `docker compose up -d --build`
 
