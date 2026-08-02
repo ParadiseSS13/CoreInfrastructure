@@ -1,0 +1,48 @@
+# This is an example configuration. Please see README.MD for TaskDaemon
+
+[forumsDatabase]
+host = "172.16.0.200"
+username = "myuser"
+password = "mypassword"
+database = "paradise_forums"
+
+[gameDatabase]
+host = "172.16.0.200"
+username = "myuser"
+password = "mypassword"
+database = "paradise_profilerdaemon"
+
+[github]
+githubToken = "your token here"
+repoId = 123456
+orgName = "ParadiseSS13"
+reviewTeamName = "review-team" # Team name but with the dashes like "review-team" not "Review Team"
+reviewTeamToken = "your token here" # Review team gets a separate token because it needs org admin to get team members
+
+[ip2asn]
+host = "http://127.0.0.1:53661/v1/as/ip/" # Fill out URL - IP will be appended at the end
+
+[pfsense]
+host = "127.0.0.1"
+port = 1234
+
+[profilerDatabase]
+host = "172.16.0.200"
+username = "myuser"
+password = "mypassword"
+database = "paradise_profilerdaemon"
+
+[pullRequestsDatabase]
+host = "172.16.0.200"
+username = "myuser"
+password = "mypassword"
+database = "aa07_pr_voting"
+
+[redis]
+host = "172.16.0.200"
+
+[tgs]
+tgsHost = "http://10.0.0.30:5000" # dont put a trailing slash on the end of this
+username = "username_here"
+password = "password_here"
+instanceId = 8 # instance ID to restart every day

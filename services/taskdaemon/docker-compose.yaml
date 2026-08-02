@@ -1,0 +1,18 @@
+services:
+  taskdaemon:
+    build:
+      context: https://github.com/ParadiseSS13/TaskDaemon.git#365f19fd748160e08d428ae6db5227454d408167
+      dockerfile: docker/Dockerfile
+    container_name: taskdaemon
+    restart: unless-stopped
+    networks:
+      internal:
+        ipv4_address: 172.28.0.6
+
+    configs:
+      - source: taskdaemon
+        target: /app/config.toml
+
+configs:
+  taskdaemon:
+    file: ./config.toml

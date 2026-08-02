@@ -4,6 +4,8 @@ include:
   - services/ip2asn/docker-compose.yaml
   # Nginx Proxy Manager
   - services/nginx_proxy_manager/docker-compose.yaml
+  # Taskdaemon
+  - services/taskdaemon/docker-compose.yaml
   # Valkey
   - services/valkey/docker-compose.yaml
   # YTDLP
@@ -15,6 +17,7 @@ networks:
   # 0.3: ip2asn     53661
   # 0.4: valkey      6379
   # 0.5: ytdlp      33432
+  # 0.6: taskdaemon
   internal:
     ipam:
       driver: default
