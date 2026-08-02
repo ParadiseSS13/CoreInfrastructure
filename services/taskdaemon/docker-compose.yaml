@@ -1,8 +1,6 @@
 services:
   taskdaemon:
-    build:
-      context: https://github.com/ParadiseSS13/TaskDaemon.git#365f19fd748160e08d428ae6db5227454d408167
-      dockerfile: docker/Dockerfile
+    image: docker-public.paradisestation.org/paradise/taskdaemon:20260802.183743-4121d25
     container_name: taskdaemon
     restart: unless-stopped
     networks:
