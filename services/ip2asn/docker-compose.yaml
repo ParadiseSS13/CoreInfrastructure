@@ -1,8 +1,6 @@
 services:
   ip2asn:
-    build:
-      context: https://github.com/ParadiseSS13/iptoasn-webservice.git#a714e7b122c20afeba3cdb4f31fd18933b5dc170
-      dockerfile: docker/Dockerfile
+    image: docker-public.paradisestation.org/jedisct1/iptoasn-webservice:20260802.191411-fe10ce3
     container_name: iptoasn
     restart: unless-stopped
     ports:
