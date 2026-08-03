@@ -1,0 +1,23 @@
+{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        }
+    },
+    "ConnectionStrings": {
+        "provider": "your_conn_string_here"
+    },
+    "CentCom": {
+        "Provider": "ParadiseSS13",
+        "JobBans": "All",
+        "ServerBans": "All",
+        "AfterDate": null,
+        "AfterId": null,
+        "Limit": 50,
+        "UseLocalTimezone": false,
+        "UtcOffset": null
+    },
+    "AllowedHosts": "*"
+}

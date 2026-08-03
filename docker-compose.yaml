@@ -1,5 +1,7 @@
 name: paradise
 include:
+  ## CC Exporter
+  - services/cc_exporter/docker-compose.yaml
   # IP2ASN Helper
   - services/ip2asn/docker-compose.yaml
   # Nginx Proxy Manager
@@ -13,11 +15,12 @@ include:
 networks:
   # We are statically allocating IPs to ensure they never change. This lets us sidestep issues with DNS caching
   # 0.1: gateway
-  # 0.2: nginxpm       80    81   443
-  # 0.3: ip2asn     53661
-  # 0.4: valkey      6379
-  # 0.5: ytdlp      33432
+  # 0.2: nginxpm        80    81   443
+  # 0.3: ip2asn      53661
+  # 0.4: valkey       6379
+  # 0.5: ytdlp       33432
   # 0.6: taskdaemon
+  # 0.7: cc_exporter  6659
   internal:
     ipam:
       driver: default

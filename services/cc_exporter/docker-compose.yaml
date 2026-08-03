@@ -1,0 +1,24 @@
+services:
+  cc_exporter:
+    image: bobbah/centcom-exporter:1.9.1
+    container_name: cc_exporter
+    restart: unless-stopped
+
+    ports:
+      - "6659:6659"
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.7
+
+    configs:
+      - source: ccex_appsettings
+        target: /app/appsettings.json
+      - source: ccex_hostsettings
+        target: /app/hostsettings.json
+
+configs:
+  ccex_appsettings:
+    file: ./appsettings.json
+  ccex_hostsettings:
+    file: ./hostsettings.json

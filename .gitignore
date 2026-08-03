@@ -1,2 +1,3 @@
+services/cc_exporter/appsettings.json
 services/valkey/valkey.conf
 services/taskdaemon/config.toml
