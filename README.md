@@ -2,8 +2,13 @@
 
 This repository contains the docker compose project that manages the core components of the ParadiseSS13 infrastructure. This includes:
 
+- CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
+- IP2ASN - Internal tool to get the ASN associated with an IP
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal
+- Public API - The public API for round and profiler stats
+- Taskdaemon - Java project that orchestrates various backend tasks within Paradise
 - Valkey - Redis fork used as a message broker
+- YTDLP - Hosted `yt-dlp` API for the ingame "Play Internet Sound" feature
 
 This is a fairly standard docker compose stack, and most generic instructions regarding docker compose should be applicable here.
 

@@ -1,0 +1,20 @@
+services:
+  public_api:
+    image: docker-public.paradisestation.org/paradise/public-api:20260803.210215-8be720e
+    container_name: public_api
+    restart: unless-stopped
+
+    ports:
+      - "32314:32314"
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.8
+
+    configs:
+      - source: publicapi_appsettings
+        target: /app/appsettings.json
+
+configs:
+  publicapi_appsettings:
+    file: ./appsettings.json
