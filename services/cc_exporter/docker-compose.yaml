@@ -1,6 +1,6 @@
 services:
   cc_exporter:
-    image: bobbah/centcom-exporter:1.9.1
+    image: bobbah/centcom-exporter:1.10.0
     container_name: cc_exporter
     restart: unless-stopped
 
