@@ -6,6 +6,8 @@ include:
   - services/ip2asn/docker-compose.yaml
   # Nginx Proxy Manager
   - services/nginx_proxy_manager/docker-compose.yaml
+  # Postgres
+  - services/postgres/docker-compose.yaml
   # Public API
   - services/public_api/docker-compose.yaml
   # Taskdaemon
@@ -24,6 +26,7 @@ networks:
   # 0.6: taskdaemon
   # 0.7: cc_exporter  6659
   # 0.8: public_api  32314
+  # 0.9: postgres     5432
   internal:
     ipam:
       driver: default
