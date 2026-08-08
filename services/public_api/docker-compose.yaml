@@ -1,6 +1,6 @@
 services:
   public_api:
-    image: docker-public.paradisestation.org/paradise/public-api:20260803.210215-8be720e
+    image: docker-public.paradisestation.org/paradise/public-api:20260808.145926-bc6ecc3
     container_name: public_api
     restart: unless-stopped
 
