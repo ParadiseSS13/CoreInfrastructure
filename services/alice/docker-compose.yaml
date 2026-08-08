@@ -1,0 +1,16 @@
+services:
+  alice:
+    image: docker-internal.paradisestation.org/paradise/alice:20260808.105728-483178d
+    container_name: alice
+    restart: unless-stopped
+    networks:
+      internal:
+        ipv4_address: 172.28.0.10
+
+    configs:
+      - source: alice
+        target: /app/config.toml
+
+configs:
+  alice:
+    file: ./config.toml

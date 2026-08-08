@@ -1,0 +1,52 @@
+[byond]
+host = "127.0.0.1"
+port = 6666
+commskey = "comms key here"
+
+[discord]
+token = "put_your_token_here"
+banFeedWebhook = "https://webhook.url.here"
+
+[elasticsearch]
+host = "127.0.0.1"
+port = 9201
+username = "user"
+password = "pass"
+
+[forumsdb]
+host = "127.0.0.1"
+username = "db_user"
+password = "db_pass"
+database = "db_name"
+
+[gamedb]
+host = "127.0.0.1"
+username = "db_user"
+password = "db_pass"
+database = "db_name"
+
+[github]
+apiPath = "https://path.to.api"
+authKey = "api key here"
+
+[pfsense]
+host = "127.0.0.1"
+port = 1234
+
+[prdb]
+host = "127.0.0.1"
+username = "db_user"
+password = "db_pass"
+database = "db_name"
+
+[redis]
+host = "127.0.0.1"
+
+[sync]
+apiPath = "https://path.to.api"
+apiKey = "api key here"
+
+[tgs]
+tgsHost = "http://127.0.0.1:5000/"
+username = "tgs_user"
+password = "tgs_pass"

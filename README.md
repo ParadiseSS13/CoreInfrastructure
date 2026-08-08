@@ -2,6 +2,7 @@
 
 This repository contains the docker compose project that manages the core components of the ParadiseSS13 infrastructure. This includes:
 
+- ALICE - The discord bot
 - CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal
@@ -19,7 +20,7 @@ This is a fairly standard docker compose stack, and most generic instructions re
 
 Some of these projects are internal and will need removing from the stack if you are doing testing. These projects are:
 
-- Nothing yet, but there will be soon(TM)
+- ALICE
 
 Simply comment these lines out of the root `docker-compose.yaml` file and you should be able to deploy.
 
