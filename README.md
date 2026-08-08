@@ -3,6 +3,7 @@
 This repository contains the docker compose project that manages the core components of the ParadiseSS13 infrastructure. This includes:
 
 - ALICE - The discord bot
+- Authentik - Authentication and RBAC for backend resources
 - CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal

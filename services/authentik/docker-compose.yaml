@@ -1,0 +1,54 @@
+services:
+  authentik_server:
+    image: authentik/server:2026.8.0-rc6
+    container_name: authentik_server
+    restart: unless-stopped
+    command: server
+
+    environment:
+      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY}
+      AUTHENTIK_REDIS__HOST: 172.28.0.4
+      AUTHENTIK_REDIS__PORT: 6379
+      AUTHENTIK_POSTGRESQL__HOST: 172.28.0.9
+      AUTHENTIK_POSTGRESQL__PORT: 5432
+      AUTHENTIK_POSTGRESQL__USER: authentik
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
+      AUTHENTIK_ERROR_REPORTING__ENABLED: "false"
+
+    volumes:
+      - ./media:/media
+      - ./custom-templates:/templates
+
+    ports:
+      - "9000:9000"
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.11
+
+  authentik_worker:
+    image: authentik/server:2026.8.0-rc6
+    container_name: authentik_worker
+    restart: unless-stopped
+    command: worker
+
+    environment:
+      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY}
+      AUTHENTIK_REDIS__HOST: 172.28.0.4
+      AUTHENTIK_REDIS__PORT: 6379
+      AUTHENTIK_POSTGRESQL__HOST: 172.28.0.9
+      AUTHENTIK_POSTGRESQL__PORT: 5432
+      AUTHENTIK_POSTGRESQL__USER: authentik
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
+      AUTHENTIK_ERROR_REPORTING__ENABLED: "false"
+
+    volumes:
+      - ./media:/media
+      - ./certs:/certs
+      - ./custom-templates:/templates
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.12
