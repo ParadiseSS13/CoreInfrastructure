@@ -21,7 +21,7 @@ services:
       - ./custom-templates:/templates
 
     ports:
-      - "9000:9000"
+      - "9000:9000" # exposed for initial local config before configuring nginxpm
 
     networks:
       internal:

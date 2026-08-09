@@ -10,6 +10,8 @@ include:
   - services/ip2asn/docker-compose.yaml
   # MariaDB
   - services/mariadb/docker-compose.yaml
+  # MediaWiki
+  - services/mediawiki/docker-compose.yaml
   # Nginx Proxy Manager
   - services/nginx_proxy_manager/docker-compose.yaml
   # ParaCron
@@ -39,7 +41,10 @@ networks:
   # 0.11: auth server  9000
   # 0.12: auth worker
   # 0.13: paracron
-  # 0.14: mariadb
+  # 0.14: mariadb      3306
+  # 0.15: mw core      9100
+  # 0.16: mw nginx     9200
+
   internal:
     ipam:
       driver: default

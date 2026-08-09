@@ -1,7 +1,8 @@
 services:
   valkey:
-    image: 'valkey/valkey:9.1.1-alpine3.24'
-    restart: 'unless-stopped'
+    image: valkey/valkey:9.1.1-alpine3.24
+    container_name: valkey
+    restart: unless-stopped
     ports:
       - "6379:6379"
 

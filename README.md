@@ -7,6 +7,7 @@ This repository contains the docker compose project that manages the core compon
 - CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - MariaDB - Database for SS13 and other ancilliary services
+- MediaWiki - Wiki for the SS13 server
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal
 - ParaCron - CRON scheduler for things like DB backups
 - PostgreSQL - Used to back Authentik and possibly SS14 in the future

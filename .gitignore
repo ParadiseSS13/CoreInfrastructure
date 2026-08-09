@@ -1,5 +1,6 @@
 services/alice/config.toml
 services/cc_exporter/appsettings.json
+services/mediawiki/LocalSettings.php
 services/public_api/appsettings.json
 services/taskdaemon/config.toml
 services/valkey/valkey.conf
