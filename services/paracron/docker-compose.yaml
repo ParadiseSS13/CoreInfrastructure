@@ -1,0 +1,20 @@
+services:
+  paracron:
+    image: docker-public.paradisestation.org/paradise/paracron:20260809.144146-e7a27ad
+    container_name: paracron
+
+    restart: unless-stopped
+
+    environment:
+      MYSQL_BACKUP_PW: ${MYSQL_BACKUP_PW}
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.13
+
+
+    volumes:
+      - paracron_data:/data
+
+volumes:
+  paracron_data:

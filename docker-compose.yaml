@@ -10,6 +10,8 @@ include:
   - services/ip2asn/docker-compose.yaml
   # Nginx Proxy Manager
   - services/nginx_proxy_manager/docker-compose.yaml
+  # ParaCron
+  - services/paracron/docker-compose.yaml
   # Postgres
   - services/postgres/docker-compose.yaml
   # Public API
@@ -34,6 +36,7 @@ networks:
   # 0.10: alice
   # 0.11: auth server  9000
   # 0.12: auth worker
+  # 0.13: paracron
   internal:
     ipam:
       driver: default

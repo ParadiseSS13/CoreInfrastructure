@@ -7,7 +7,8 @@ This repository contains the docker compose project that manages the core compon
 - CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal
-- PostgreSQL - Used to back Authentik (coming soon) and possibly SS14 in the future
+- ParaCron - CRON scheduler for things like DB backups
+- PostgreSQL - Used to back Authentik and possibly SS14 in the future
 - Public API - The public API for round and profiler stats
 - Taskdaemon - Java project that orchestrates various backend tasks within Paradise
 - Valkey - Redis fork used as a message broker
