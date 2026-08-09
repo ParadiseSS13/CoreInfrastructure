@@ -1,6 +1,6 @@
 services:
   paracron:
-    image: docker-public.paradisestation.org/paradise/paracron:20260809.144146-e7a27ad
+    image: docker-public.paradisestation.org/paradise/paracron:20260809.192624-76ffb50
     container_name: paracron
 
     restart: unless-stopped

@@ -1,6 +1,6 @@
 services:
   mediawiki_core:
-    image: docker-public.paradisestation.org/paradise/parawiki:20260809.191144-1286416
+    image: docker-public.paradisestation.org/paradise/parawiki:20260809.192856-b81573b
     container_name: mediawiki_core
     restart: unless-stopped
     volumes:
