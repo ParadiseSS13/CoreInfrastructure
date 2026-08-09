@@ -3,9 +3,17 @@ services:
     image: docker-public.paradisestation.org/paradise/parawiki:20260809.192856-b81573b
     container_name: mediawiki_core
     restart: unless-stopped
+    # Sync baked assets into shared export volumes on startup, then launch php-fpm
+    command: >
+      sh -c "cp -a /var/www/html/skins/. /export/skins/ &&
+             cp -a /var/www/html/extensions/. /export/extensions/ &&
+             exec php-fpm"
+
     volumes:
       - ./LocalSettings.php:/var/www/html/LocalSettings.php:ro
       - mediawiki-images:/var/www/html/images
+      - mediawiki-skins:/export/skins
+      - mediawiki-extensions:/export/extensions
 
     networks:
       internal:
@@ -22,7 +30,8 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - mediawiki-images:/var/www/html/images:ro
-
+      - mediawiki-skins:/var/www/html/skins:ro
+      - mediawiki-extensions:/var/www/html/extensions:ro
     depends_on:
       - mediawiki_core
 
@@ -32,3 +41,5 @@ services:
 
 volumes:
   mediawiki-images:
+  mediawiki-skins:
+  mediawiki-extensions:
