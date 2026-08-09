@@ -1,0 +1,21 @@
+services:
+  mariadb:
+    image: mariadb:12.3.2
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+
+    restart: unless-stopped
+
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.14
+
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:
