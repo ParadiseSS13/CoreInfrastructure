@@ -1,0 +1,25 @@
+[main]
+port = 6434
+forums_api_key = "unset"
+
+[automationdb]
+host = "127.0.0.1:3306"
+username = "unset"
+password = "unset"
+database = "aa07_automation"
+
+[forumsdb]
+host = "127.0.0.1:3306"
+username = "unset"
+password = "unset"
+database = "paradise_forums"
+
+[gamedb]
+host = "127.0.0.1:3306"
+username = "unset"
+password = "unset"
+database = "paradise_gamedb"
+
+[webhooks]
+admin_chat = "https://go.away"
+mentor_apps_chat = "https://go.away"

@@ -5,6 +5,7 @@ This repository contains the docker compose project that manages the core compon
 - ALICE - The discord bot
 - Authentik - Authentication and RBAC for backend resources
 - CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
+- ForumDaemon - System that posts log links on ban appeals amongst other things
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - MariaDB - Database for SS13 and other ancilliary services
 - MediaWiki - Wiki for the SS13 server
@@ -25,6 +26,7 @@ This is a fairly standard docker compose stack, and most generic instructions re
 Some of these projects are internal and will need removing from the stack if you are doing testing. These projects are:
 
 - ALICE
+- ForumDaemon
 
 Simply comment these lines out of the root `docker-compose.yaml` file and you should be able to deploy.
 

@@ -1,0 +1,20 @@
+services:
+  forumdaemon:
+    image: docker-internal.paradisestation.org/paradise/forumdaemon:20260811.180856-c305834
+    container_name: forumdaemon
+    restart: unless-stopped
+    ports:
+      - "6434:6434"
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.17
+
+
+    configs:
+      - source: forumdaemon
+        target: /app/config.toml
+
+configs:
+  forumdaemon:
+    file: ./config.toml

@@ -6,6 +6,8 @@ include:
   - services/authentik/docker-compose.yaml
   # CC Exporter
   - services/cc_exporter/docker-compose.yaml
+  # ForumDaemon - internal only, comment out if youre a public dev
+  - services/forumdaemon/docker-compose.yaml
   # IP2ASN Helper
   - services/ip2asn/docker-compose.yaml
   # MariaDB
@@ -44,7 +46,7 @@ networks:
   # 0.14: mariadb      3306
   # 0.15: mw core      9100
   # 0.16: mw nginx     9200
-
+  # 0.17: forumdaemon  6434
   internal:
     ipam:
       driver: default
