@@ -1,0 +1,2 @@
+# 9AM UTC - DB backups
+0 9 * * * /usr/local/bin/invoke_all_sql_backups.sh >> /proc/1/fd/1 2>&1

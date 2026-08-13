@@ -1,9 +1,11 @@
 services:
   paracron:
-    image: docker-public.paradisestation.org/paradise/paracron:20260811.212612-2249ddd
+    image: alpine:3.20
     container_name: paracron
 
     restart: unless-stopped
+
+    command: /bin/sh /entrypoint.sh
 
     environment:
       MYSQL_BACKUP_PW: ${MYSQL_BACKUP_PW}
@@ -14,6 +16,8 @@ services:
 
 
     volumes:
+      - ./entrypoint.sh:/entrypoint.sh:ro
+      - ./custom:/custom:ro
       - paracron_data:/data
 
 volumes:
