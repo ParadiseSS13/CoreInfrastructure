@@ -9,6 +9,9 @@ services:
              cp -a /var/www/html/extensions/. /export/extensions/ &&
              exec php-fpm"
 
+    ports:
+      - "9100:9100" # exposed for monitoring
+
     volumes:
       - ./LocalSettings.php:/var/www/html/LocalSettings.php:ro
       - mediawiki-images:/var/www/html/images
