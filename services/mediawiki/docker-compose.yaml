@@ -37,7 +37,7 @@ services:
       - mediawiki-images:/var/www/html/images:ro
       - mediawiki-skins:/var/www/html/skins:ro
       - mediawiki-extensions:/var/www/html/extensions:ro
-      - mediawiki-resources:/var/www/html/extensions:ro
+      - mediawiki-resources:/var/www/html/resources:ro
     depends_on:
       - mediawiki_core
 
