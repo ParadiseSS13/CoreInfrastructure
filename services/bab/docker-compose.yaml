@@ -16,7 +16,7 @@ services:
         target: /app/config/local.json
 
     volumes:
-      - logs:/app/logs
+      - bab-logs:/app/logs
 
     networks:
       internal:
