@@ -1,4 +1,5 @@
 services/alice/config.toml
+services/bab/local.json
 services/cc_exporter/appsettings.json
 services/forumdaemon/config.toml
 services/mediawiki/LocalSettings.php

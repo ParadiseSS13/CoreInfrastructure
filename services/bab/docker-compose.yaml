@@ -1,0 +1,30 @@
+services:
+  bab:
+    image: docker-public.paradisestation.org/alexkar598/bab:20260815.095842-72b795d
+    container_name: bab
+    restart: unless-stopped
+
+    init: true
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+
+    ports:
+      - "8181:8181"
+
+    configs:
+      - source: bab-config
+        target: /app/config/local.json
+
+    volumes:
+      - logs:/app/logs
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.18
+
+configs:
+  bab-config:
+    file: ./local.json
+
+volumes:
+  bab-logs:

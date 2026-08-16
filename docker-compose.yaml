@@ -4,6 +4,8 @@ include:
   - services/alice/docker-compose.yaml
   # Authentik
   - services/authentik/docker-compose.yaml
+  # BAB
+  - services/bab/docker-compose.yaml
   # CC Exporter
   - services/cc_exporter/docker-compose.yaml
   # ForumDaemon - internal only, comment out if youre a public dev
@@ -47,6 +49,7 @@ networks:
   # 0.15: mw core      9100
   # 0.16: mw nginx     9200
   # 0.17: forumdaemon  6434
+  # 0.18: bab          8181
   internal:
     ipam:
       driver: default

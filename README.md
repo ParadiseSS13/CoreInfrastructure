@@ -5,6 +5,7 @@ This repository contains the docker compose project that manages the core compon
 - ALICE - The discord bot
 - Authentik - Authentication and RBAC for backend resources
 - CC Exporter - Exporter that powers the [Centcom Ban DB](https://centcom.melonmesa.com/)
+- BAB - Byond authentication bridge to allow OIDC sign-in with BYOND accounts
 - ForumDaemon - System that posts log links on ban appeals amongst other things
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - MariaDB - Database for SS13 and other ancilliary services

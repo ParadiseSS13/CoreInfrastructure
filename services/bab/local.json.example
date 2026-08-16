@@ -1,0 +1,43 @@
+{
+    "server": {
+        "host": "0.0.0.0",
+        "port": "8181",
+        "publicUrl": "https://bab.paradisestation.org",
+        "proxy": true
+    },
+    "database": {
+        "connectionString": "postgresql://user:password@172.28.0.9:5432/bab?schema=bab"
+    },
+    "logging": {
+        "http": {
+            "level": "info",
+            "meta": false
+        },
+        "database": {
+            "levels": {
+                "query": "debug",
+                "info": "info",
+                "warn": "warning",
+                "error": "error"
+            }
+        },
+        "file": {
+            "level": "info",
+            "enabled": true
+        },
+        "file-err": {
+            "level": "warning",
+            "enabled": true
+        },
+        "console": {
+            "level": "info",
+            "enabled": true,
+            "pretty": false,
+            "json": false
+        }
+    },
+    "security": {
+        "test": false,
+        "enforce_redirect_uri": true
+    }
+}
