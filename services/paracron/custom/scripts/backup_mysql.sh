@@ -1,93 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -euo pipefail
+source backup_lib.sh
 
-################################################################
-##
-##   MySQL Database Backup Script
-##   Written By: Rahul Kumar
-##   URL: https://tecadmin.net/bash-script-mysql-database-backup/
-##   Last Update: Jan 05, 2019
-##
-################################################################
+parse_sql_args "$@"
+TARGET_PREFIX=$(prepare_backup_dir)
 
-export PATH=/bin:/usr/bin:/usr/local/bin
-TODAY=`date +"%d%b%Y"`
+mysqldump --quick --single-transaction -h "${SQL_HOST}" \
+   -P "${SQL_PORT}" \
+   -u "${SQL_USER}" \
+   -p"${SQL_PASSWORD}" \
+   "${SQL_DBNAME}" | gzip > "${TARGET_PREFIX}.sql.gz"
 
-################################################################
-################## Update below values  ########################
-
-DB_BACKUP_PATH=''
-MYSQL_HOST=''
-MYSQL_PORT='3306'
-MYSQL_USER=''
-MYSQL_PASSWORD=''
-DATABASE_NAME=''
-
-## AA07 EDIT - Makes these work as script args instead of hardcoded vars
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --host|-h)
-      MYSQL_HOST="$2"
-      shift 2
-      ;;
-    --port)
-      MYSQL_PORT="$2"
-      shift 2
-      ;;
-    --user|-u)
-      MYSQL_USER="$2"
-      shift 2
-      ;;
-    --password|-p)
-      MYSQL_PASSWORD="$2"
-      shift 2
-      ;;
-    --dbname|-d)
-      DATABASE_NAME="$2"
-      shift 2
-      ;;
-    --backuppath|-b)
-      DB_BACKUP_PATH="$2"
-      shift 2
-      ;;
-    --help)
-      echo "Usage: $0 --host <host> --port <port> --user <user> --password <pass> --dbname <name> --backuppath <dir> "
-      exit 0
-      ;;
-    *)
-      echo "Error: Unknown argument: $1" >&2
-      exit 1
-      ;;
-  esac
-done
-
-#################################################################
-
-mkdir -p ${DB_BACKUP_PATH}/${TODAY}
-echo "Backup started for database - ${DATABASE_NAME}"
-
-
-mysqldump --quick --single-transaction -h ${MYSQL_HOST} \
-   -P ${MYSQL_PORT} \
-   -u ${MYSQL_USER} \
-   -p${MYSQL_PASSWORD} \
-   ${DATABASE_NAME} | gzip > ${DB_BACKUP_PATH}/${TODAY}/${DATABASE_NAME}-${TODAY}.sql.gz
-
-if [ $? -eq 0 ]; then
-  echo "Database backup successfully completed"
-else
-  echo "Error found during backup"
-  exit 1
-fi
-
-
-##### Remove backups older than 7 days  #####
-DBDELDATE=$(date -d "@$(( $(date +%s) - 604800 ))" +"%d%b%Y")
-
-if [ ! -z ${DB_BACKUP_PATH} ]; then
-      cd ${DB_BACKUP_PATH}
-      if [ ! -z ${DBDELDATE} ] && [ -d ${DBDELDATE} ]; then
-            rm -rf ${DBDELDATE}
-      fi
-fi
-
-### End of script ####
+# Handled here so we dont delete old backups if new fail to create
+prune_old_backups
