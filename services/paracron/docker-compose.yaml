@@ -1,6 +1,6 @@
 services:
   paracron:
-    image: alpine:3.20
+    image: alpine:3.24
     container_name: paracron
 
     restart: unless-stopped
@@ -9,6 +9,7 @@ services:
 
     environment:
       MYSQL_BACKUP_PW: ${MYSQL_BACKUP_PW}
+      POSTGRES_BACKUP_PW: ${POSTGRES_BACKUP_PW}
 
     networks:
       internal:

@@ -1,3 +1,4 @@
 bash
 mariadb-client
 tzdata
+postgresql18-client

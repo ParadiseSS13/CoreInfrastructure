@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Shared 'library' for SQL backups.
 export PATH=/bin:/usr/bin:/usr/local/bin
 

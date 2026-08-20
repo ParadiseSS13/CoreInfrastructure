@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -uo pipefail
 
 echo "[$(date)] SQL Backup Started"
 
@@ -19,14 +19,51 @@ declare -A MYSQL_DBS=(
     ["paradise_tgs_espresso3"]="/data/mysql_backups/tgs"
     # Wiki DB
     ["paradise_wiki"]="/data/mysql_backups/wiki"
-    )
+)
+
+# Postgres config
+POSTGRES_HOST=172.28.0.9
+POSTGRES_PORT=5432
+declare -A POSTGRES_DBS=(
+    ["authentik"]="/data/postgres_backups/authentik"
+    ["bab"]="/data/postgres_backups/bab"
+)
+
+FAILED=0
 
 for db in "${!MYSQL_DBS[@]}"; do
-    echo "MySQL Backup started for database - ${db}"
-    backup_mysql.sh --host ${MYSQL_HOST} --port ${MYSQL_PORT} --user ${SQL_USER} --password ${MYSQL_BACKUP_PW} --dbname ${db} --backuppath ${MYSQL_DBS[$db]};
-    if [ $? -eq 0 ]; then
-        echo "Database backup successfully completed"
+    echo "MySQL backup started for database: ${db}"
+    if backup_mysql.sh \
+        --host "${MYSQL_HOST}" \
+        --port "${MYSQL_PORT}" \
+        --user "${SQL_USER}" \
+        --password "${MYSQL_BACKUP_PW}" \
+        --dbname "${db}" \
+        --backuppath "${MYSQL_DBS[$db]}"
+    then
+        echo "MYSQL backup completed: $db"
     else
-        echo "Error found during backup"
+        echo "MYSQL backup failed: $db"
+        FAILED=1
     fi
 done
+
+for db in "${!POSTGRES_DBS[@]}"; do
+    echo "PostgreSQL backup started for database: ${db}"
+
+    if backup_postgres.sh \
+        --host "$POSTGRES_HOST" \
+        --port "$POSTGRES_PORT" \
+        --user "$SQL_USER" \
+        --password "$POSTGRES_BACKUP_PW" \
+        --dbname "$db" \
+        --backuppath "${POSTGRES_DBS[$db]}"
+    then
+        echo "PostgreSQL backup completed: $db"
+    else
+        echo "PostgreSQL backup failed: $db"
+        failed=1
+    fi
+done
+
+exit "$FAILED"
