@@ -1,6 +1,6 @@
 services:
   taskdaemon:
-    image: docker-public.paradisestation.org/paradise/taskdaemon:20260824.203329-fc64089
+    image: docker-public.paradisestation.org/paradise/taskdaemon:20260827.195911-7bc2d2a
     container_name: taskdaemon
     restart: unless-stopped
     networks:
