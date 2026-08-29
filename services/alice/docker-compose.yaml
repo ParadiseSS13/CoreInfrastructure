@@ -1,6 +1,6 @@
 services:
   alice:
-    image: docker-internal.paradisestation.org/paradise/alice:20260828.180336-0693778
+    image: docker-internal.paradisestation.org/paradise/alice:20260829.115157-f8ce77b
     container_name: alice
     restart: unless-stopped
     networks:

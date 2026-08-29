@@ -1,3 +1,25 @@
+[alicedb]
+host = "127.0.0.1"
+username = "db_user"
+password = "db_pass"
+database = "db_name"
+
+[authentikapi]
+apiRoot = "https://authentik.host/api/"
+apiKey = "key here"
+
+[authentikdb]
+host = "127.0.0.1"
+username = "db_user"
+password = "db_pass"
+database = "db_name"
+
+[automationdb]
+host = "127.0.0.1"
+username = "db_user"
+password = "db_pass"
+database = "db_name"
+
 [byond]
 host = "127.0.0.1"
 port = 6666
@@ -12,12 +34,6 @@ host = "127.0.0.1"
 port = 9201
 username = "user"
 password = "pass"
-
-[forumsdb]
-host = "127.0.0.1"
-username = "db_user"
-password = "db_pass"
-database = "db_name"
 
 [gamedb]
 host = "127.0.0.1"
