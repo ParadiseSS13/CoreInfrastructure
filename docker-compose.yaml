@@ -26,6 +26,8 @@ include:
   - services/public_api/docker-compose.yaml
   # Taskdaemon
   - services/taskdaemon/docker-compose.yaml
+  # Taskdaemon
+  - services/tools_nginx/docker-compose.yaml
   # Valkey
   - services/valkey/docker-compose.yaml
   # YTDLP
@@ -50,6 +52,7 @@ networks:
   # 0.16: mw nginx     9200
   # 0.17: forumdaemon  6434
   # 0.18: bab          8181
+  # 0.19: tools_nginx  8081
   internal:
     ipam:
       driver: default

@@ -1,0 +1,19 @@
+services:
+  tools_nginx:
+    image: docker-public.paradisestation.org/paradise/paraphp:20260831.202458-464e6d9
+    container_name: tools_nginx
+    restart: unless-stopped
+
+    ports:
+      - "8081:8080"
+
+    volumes:
+      - toolsnginx-webroot:/var/www/html
+      - /mnt/espresso_logs:/mnt/espresso_logs:ro
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.19
+
+volumes:
+  toolsnginx-webroot:

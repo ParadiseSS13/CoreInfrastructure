@@ -15,6 +15,7 @@ This repository contains the docker compose project that manages the core compon
 - PostgreSQL - Used to back Authentik and possibly SS14 in the future
 - Public API - The public API for round and profiler stats
 - Taskdaemon - Java project that orchestrates various backend tasks within Paradise
+- Tools_NGINX - Webserver to host various tools that use Authentik signin
 - Valkey - Redis fork used as a message broker
 - YTDLP - Hosted `yt-dlp` API for the ingame "Play Internet Sound" feature
 
@@ -24,10 +25,11 @@ This is a fairly standard docker compose stack, and most generic instructions re
 
 ### Important Note
 
-Some of these projects are internal and will need removing from the stack if you are doing testing. These projects are:
+Some of these projects are internal, or need custom mounts, and will need removing from the stack if you are doing testing. These projects are:
 
-- ALICE
-- ForumDaemon
+- ALICE (Internal)
+- ForumDaemon (Internal)
+- Tools_NGINX (Relies on hardcoded `/mnt/espresso_logs`)
 
 Simply comment these lines out of the root `docker-compose.yaml` file and you should be able to deploy.
 
