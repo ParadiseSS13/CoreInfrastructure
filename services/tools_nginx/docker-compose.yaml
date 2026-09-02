@@ -11,6 +11,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - toolsnginx-webroot:/var/www/html
       - /mnt/espresso_logs:/mnt/espresso_logs:ro
+      - /mnt/espresso_assets:/mnt/espresso_assets:ro
 
     networks:
       internal:
