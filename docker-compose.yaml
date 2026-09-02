@@ -28,6 +28,8 @@ include:
   - services/taskdaemon/docker-compose.yaml
   # Taskdaemon
   - services/tools_nginx/docker-compose.yaml
+  # URL Shortener NGINX
+  - services/url_shortener_nginx/docker-compose.yaml
   # Valkey
   - services/valkey/docker-compose.yaml
   # YTDLP
@@ -35,24 +37,25 @@ include:
 networks:
   # We are statically allocating IPs to ensure they never change. This lets us sidestep issues with DNS caching
   # 0.1:  gateway
-  # 0.2:  nginxpm        80    81   443
-  # 0.3:  ip2asn      53661
-  # 0.4:  valkey       6379
-  # 0.5:  ytdlp       33432
+  # 0.2:  nginxpm               80    81   443
+  # 0.3:  ip2asn             53661
+  # 0.4:  valkey              6379
+  # 0.5:  ytdlp              33432
   # 0.6:  taskdaemon
-  # 0.7:  cc_exporter  6659
-  # 0.8:  public_api  32314
-  # 0.9:  postgres     5432
+  # 0.7:  cc_exporter         6659
+  # 0.8:  public_api         32314
+  # 0.9:  postgres            5432
   # 0.10: alice
-  # 0.11: auth server  9000
+  # 0.11: auth server         9000
   # 0.12: auth worker
   # 0.13: paracron
-  # 0.14: mariadb      3306
-  # 0.15: mw core      9100
-  # 0.16: mw nginx     9200
-  # 0.17: forumdaemon  6434
-  # 0.18: bab          8181
-  # 0.19: tools_nginx  8081
+  # 0.14: mariadb             3306
+  # 0.15: mw core             9100
+  # 0.16: mw nginx            9200
+  # 0.17: forumdaemon         6434
+  # 0.18: bab                 8181
+  # 0.19: tools_nginx         8081
+  # 0.20: url_shortener_nginx 8082
   internal:
     ipam:
       driver: default
