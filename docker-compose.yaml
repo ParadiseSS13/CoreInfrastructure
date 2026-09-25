@@ -24,6 +24,10 @@ include:
   - services/postgres/docker-compose.yaml
   # Public API
   - services/public_api/docker-compose.yaml
+  # Robust.Cdn
+  - services/robust_cdn/docker-compose.yaml
+  # SS14.Admin
+  - services/ss14_admin/docker-compose.yaml
   # Taskdaemon
   - services/taskdaemon/docker-compose.yaml
   # Taskdaemon
@@ -34,10 +38,6 @@ include:
   - services/valkey/docker-compose.yaml
   # YTDLP
   - services/ytdlp/docker-compose.yaml
-  # Robust.Cdn
-  - services/robust_cdn/docker-compose.yaml
-  # SS14.Admin
-  - services/ss14_admin/docker-compose.yaml
 networks:
   # We are statically allocating IPs to ensure they never change. This lets us sidestep issues with DNS caching
   # 0.1:  gateway
