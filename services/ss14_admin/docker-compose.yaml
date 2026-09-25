@@ -1,0 +1,14 @@
+services:
+  ss14_admin:
+    image: ghcr.io/space-wizards/ss14.admin:1
+    container_name: ss14_admin
+    restart: unless-stopped
+    user: 1654:1654
+    volumes:
+      - ./appsettings.yml:/app/appsettings.yml
+
+    ports:
+      - 8084:8080
+    networks:
+      internal:
+        ipv4_address: 172.28.0.22
