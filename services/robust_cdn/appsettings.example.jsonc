@@ -1,0 +1,91 @@
+{
+  // Log level configuration, you can leave these as default.
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning",
+      "Robust": "Information"
+    }
+  },
+
+  // Contains configuration primarily for manifest operation,
+  // but is also needed for CDN operations to configure available forks.
+  "Manifest": {
+    // The set of available forks Robust.Cdn should serve.
+    "Forks": {
+      // Configuration for a single fork. The key here is the ID of the fork, which will be used in many locations.
+      // YOU SHOULD MAKE THE FORK ID COMPLETELY GLOBALLY UNIQUE TO AVOID ISSUES.
+      // DON'T JUST WRITE "TEST" HERE.
+      "test": {
+        // A token used to publish new versions to this fork.
+        // ***YOU SHOULD CHANGE THIS TO BE A NEW UNIQUE VALUE***.
+        "UpdateToken": "foobar",
+
+        // Configuration to notify SS14.Watchdog instances of new updates. Multiple can be specified.
+        "NotifyWatchdogs": [
+          {
+            // The base address of the watchdog.
+            "WatchdogUrl": "http://localhost:5000/",
+
+            // The specific server instance on the watchdog to notify.
+            "Instance": "syndicate_mothership",
+
+            // The ApiToken specified in the watchdog config for this instance.
+            "ApiToken": "Honk"
+          }
+        ],
+
+        // Set to true to make this a "private" fork.
+        // Private forks limit access of server builds, which is desirable for servers with secret content.
+        // See below for details.
+        "Private": false,
+
+        // Username and password combinations to access server files for private forks.
+        // Ignored if not a private fork.
+        "PrivateUsers": {
+          "foobar": "baz"
+        },
+
+        // How many days to keep around old build files.
+        "PruneBuildsDays": 90,
+
+        // Nice human readable display name of this fork.
+        // This is displayed on locations such as the HTML builds page.
+        "DisplayName": "Test Fork",
+
+        // Link destination on the HTML builds page.
+        "BuildsPageLink": "https://example.com",
+
+        // Link text on the HTML builds page.
+        "BuildsPageLinkText": "Test Fork LINK"
+      }
+    }
+  },
+
+  // Configuration primarily for client CDN.
+  "Cdn": {
+    // Increase this to reduce bandwidth usage for large downloads. Higher numbers need more CPU.
+    "StreamCompressLevel": 5,
+
+    // "Fallback" fork for migration functionality from Robust.Cdn 1.x.
+    // This can be omitted for new installations.
+    "DefaultFork": "test"
+  },
+
+  // Root URL that your Robust.Cdn server is globally accessible as.
+  // This is necessary for correct generation of build metadata.
+  "BaseUrl": "https://<robust-cdn-url>/",
+
+  // The base path that Robust.Cdn is exposed under.
+  // You should set this when reverse proxying Robust.Cdn behind a subpath.
+  // See also further notes down below.
+  "PathBase": "/",
+
+  // Valid host names for clients to use to connect to Robust.Cdn.
+  // You can just leave this as-is.
+  "AllowedHosts": "*",
+
+  // Change port for the Robust.Cdn to bind to here.
+  // Omit this when using official container images.
+  "Urls": "http://localhost:27690/"
+}

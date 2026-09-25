@@ -1,0 +1,22 @@
+services:
+  robust_cdn:
+    image: ghcr.io/space-wizards/robust.cdn:2
+    container_name: robust_cdn
+    restart: unless-stopped
+    user: 1654:1654
+    volumes:
+      - ./appsettings.jsonc:/app/appsettings.json # Because using jsonc with a json extension is confusing af
+      - robust_builds:/builds
+      - robust_build_manifests:/manifest
+      - robust_builds_database:/database
+
+    ports:
+      - 8083:8080
+    networks:
+      internal:
+        ipv4_address: 172.28.0.21
+
+volumes:
+  robust_builds:
+  robust_build_manifests:
+  robust_builds_database:

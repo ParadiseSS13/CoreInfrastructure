@@ -34,6 +34,8 @@ include:
   - services/valkey/docker-compose.yaml
   # YTDLP
   - services/ytdlp/docker-compose.yaml
+  # Robust CDN
+  - services/robust_cdn/docker-compose.yaml
 networks:
   # We are statically allocating IPs to ensure they never change. This lets us sidestep issues with DNS caching
   # 0.1:  gateway
@@ -56,6 +58,7 @@ networks:
   # 0.18: bab                 8181
   # 0.19: tools_nginx         8081
   # 0.20: url_shortener_nginx 8082
+  # 0.21: robust_cdn          8083
   internal:
     ipam:
       driver: default
