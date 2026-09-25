@@ -19,6 +19,8 @@ This repository contains the docker compose project that manages the core compon
 - URL Shortener NGINX - Webservice for `paradise13.org` - the URL shortener domain
 - Valkey - Redis fork used as a message broker
 - YTDLP - Hosted `yt-dlp` API for the ingame "Play Internet Sound" feature
+- Robust.Cdn - Versioned SS14 content distribution system.
+- SS14.Admin - SS14 game admin panel.
 
 This is a fairly standard docker compose stack, and most generic instructions regarding docker compose should be applicable here.
 

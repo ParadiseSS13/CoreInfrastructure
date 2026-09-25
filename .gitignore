@@ -6,4 +6,6 @@ services/mediawiki/LocalSettings.php
 services/public_api/appsettings.json
 services/taskdaemon/config.toml
 services/valkey/valkey.conf
+services/robust_cdn/appsettings.jsonc
+services/ss14_admin/appsettings.yml
 .env
