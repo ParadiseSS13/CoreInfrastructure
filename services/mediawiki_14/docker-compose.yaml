@@ -1,0 +1,52 @@
+services:
+  mediawiki_core14:
+    image: docker-public.paradisestation.org/paradise/parawiki:20260809.192856-b81573b
+    container_name: mediawiki_core14
+    restart: unless-stopped
+    # Sync baked assets into shared export volumes on startup, then launch php-fpm
+    command: >
+      sh -c "cp -a /var/www/html/skins/. /export/skins/ &&
+             cp -a /var/www/html/extensions/. /export/extensions/ &&
+             cp -a /var/www/html/resources/. /export/resources/ &&
+             exec php-fpm"
+
+    ports:
+      - "9300:9100" # exposed for monitoring
+
+    volumes:
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php:ro
+      - mediawiki-images14:/var/www/html/images
+      - mediawiki-skins14:/export/skins
+      - mediawiki-extensions14:/export/extensions
+      - mediawiki-resources14:/export/resources
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.23
+
+  mediawiki_nginx14:
+    image: nginx:1.30.4-trixie
+    container_name: mediawiki_nginx14
+    restart: unless-stopped
+
+    ports:
+      - "9400:9400"
+
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - mediawiki-images14:/var/www/html/images:ro
+      - mediawiki-skins14:/var/www/html/skins:ro
+      - mediawiki-extensions14:/var/www/html/extensions:ro
+      - mediawiki-resources14:/var/www/html/resources:ro
+    depends_on:
+      - mediawiki_core14
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.24
+
+volumes:
+  mediawiki-images14:
+  mediawiki-skins14:
+  mediawiki-extensions14:
+  mediawiki-resources14:

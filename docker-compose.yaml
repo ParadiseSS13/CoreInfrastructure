@@ -16,6 +16,8 @@ include:
   - services/mariadb/docker-compose.yaml
   # MediaWiki
   - services/mediawiki/docker-compose.yaml
+  # MediaWiki SS14
+  - services/mediawiki_14/docker-compose.yaml
   # Nginx Proxy Manager
   - services/nginx_proxy_manager/docker-compose.yaml
   # ParaCron
@@ -62,6 +64,8 @@ networks:
   # 0.20: url_shortener_nginx 8082
   # 0.21: robust_cdn          8083
   # 0.22: ss14_admin          8084
+  # 0.23: mw14 core           9300
+  # 0.24: mw14 nginx          9400
   internal:
     ipam:
       driver: default

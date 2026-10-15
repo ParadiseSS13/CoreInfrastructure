@@ -3,6 +3,7 @@ services/bab/local.json
 services/cc_exporter/appsettings.json
 services/forumdaemon/config.toml
 services/mediawiki/LocalSettings.php
+services/mediawiki_14/LocalSettings.php
 services/public_api/appsettings.json
 services/taskdaemon/config.toml
 services/valkey/valkey.conf
