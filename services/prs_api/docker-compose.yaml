@@ -1,0 +1,30 @@
+services:
+  prs_api:
+    image: docker-internal.paradisestation.org/paradise/prs-api:20261018.180908-5d5be3a
+    container_name: prs_api
+    ports:
+      - "8086:8086"
+
+    restart: unless-stopped
+
+    environment:
+      PORT: 8086
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID}
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET}
+      OIDC_ISSUER: ${OIDC_ISSUER}
+      OIDC_REDIRECT_URI: ${OIDC_REDIRECT_URI}
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN}
+      APP_JWT_SECRET: ${APP_JWT_SECRET}
+      APP_JWT_AUDIENCE: ${APP_JWT_AUDIENCE}
+      GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET}
+      DBHOST: ${DBHOST}
+      DBUSER: ${DBUSER}
+      DBPASS: ${DBPASS}
+      DBDB: ${DBDB}
+
+    networks:
+      internal:
+        ipv4_address: 172.28.0.26
+
+volumes:
+  mariadb_data:

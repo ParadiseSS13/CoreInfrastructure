@@ -14,6 +14,7 @@ This repository contains the docker compose project that manages the core compon
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal
 - ParaCron - CRON scheduler for things like DB backups
 - PostgreSQL - Used to back Authentik and possibly SS14 in the future
+- PRs API - API used for the SS13 PR voting system
 - Public API - The public API for round and profiler stats
 - Taskdaemon - Java project that orchestrates various backend tasks within Paradise
 - URL Shortener NGINX - Webservice for `paradise13.org` - the URL shortener domain
@@ -35,7 +36,8 @@ Some of these projects are internal, or need custom mounts, and will need removi
 
 - ALICE (Internal)
 - ForumDaemon (Internal)
-- Tools_NGINX (Relies on hardcoded `/mnt/espresso_logs` and `/mnt/espresso_assets`)
+- PRS API (This will be public at some point, I am just too ashamed of the code)
+- Tools NGINX (Relies on hardcoded `/mnt/espresso_logs` and `/mnt/espresso_assets`)
 
 Simply comment these lines out of the root `docker-compose.yaml` file and you should be able to deploy.
 

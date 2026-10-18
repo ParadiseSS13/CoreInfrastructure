@@ -26,6 +26,8 @@ include:
   - services/paracron/docker-compose.yaml
   # Postgres
   - services/postgres/docker-compose.yaml
+  # PRs API
+  - services/prs_api/docker-compose.yaml
   # Public API
   - services/public_api/docker-compose.yaml
   # Robust.Cdn
@@ -69,6 +71,7 @@ networks:
   # 0.23: mw14 core           9300
   # 0.24: mw14 nginx          9400
   # 0.25: ss14 nginx          8085
+  # 0.26: prs api             8086
   internal:
     ipam:
       driver: default
