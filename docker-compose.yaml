@@ -18,6 +18,8 @@ include:
   - services/mediawiki/docker-compose.yaml
   # MediaWiki SS14
   - services/mediawiki_14/docker-compose.yaml
+  # NGINX SS13
+  - services/nginx_13/docker-compose.yaml
   # NGINX SS14
   - services/nginx_14/docker-compose.yaml
   # Nginx Proxy Manager
@@ -72,6 +74,7 @@ networks:
   # 0.24: mw14 nginx          9400
   # 0.25: ss14 nginx          8085
   # 0.26: prs api             8086
+  # 0.27: ss13 nginx          8087
   internal:
     ipam:
       driver: default
