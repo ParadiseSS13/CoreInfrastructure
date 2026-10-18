@@ -10,7 +10,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - nginx13-webroot:/var/www/html
-      - /mnt/espresso_assets:/var/www/html/espresso:ro
+      - /mnt/espresso_assets:/var/www/html/espresso_assets:ro
 
     networks:
       internal:
