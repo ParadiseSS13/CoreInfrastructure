@@ -1,7 +1,7 @@
 services:
-  tools_nginx:
+  nginx_14:
     image: docker-public.paradisestation.org/paradise/paraphp:20260831.202458-464e6d9
-    container_name: tools_nginx
+    container_name: nginx_14
     restart: unless-stopped
 
     ports:
@@ -13,7 +13,7 @@ services:
 
     networks:
       internal:
-        ipv4_address: 172.28.0.19
+        ipv4_address: 172.28.0.25
 
 volumes:
   nginx14-webroot:
