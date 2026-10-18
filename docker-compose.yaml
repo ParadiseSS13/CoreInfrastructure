@@ -18,6 +18,8 @@ include:
   - services/mediawiki/docker-compose.yaml
   # MediaWiki SS14
   - services/mediawiki_14/docker-compose.yaml
+  # NGINX SS14
+  - services/nginx_14/docker-compose.yaml
   # Nginx Proxy Manager
   - services/nginx_proxy_manager/docker-compose.yaml
   # ParaCron
@@ -66,6 +68,7 @@ networks:
   # 0.22: ss14_admin          8084
   # 0.23: mw14 core           9300
   # 0.24: mw14 nginx          9400
+  # 0.25: ss14 nginx          8085
   internal:
     ipam:
       driver: default

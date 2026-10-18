@@ -19,6 +19,8 @@ declare -A MYSQL_DBS=(
     ["paradise_tgs_espresso3"]="/data/mysql_backups/tgs"
     # Wiki DB
     ["paradise_wiki"]="/data/mysql_backups/wiki"
+    # SS14 Wiki DB
+    ["paradise14_wiki"]="/data/mysql_backups/wiki14"
 )
 
 # Postgres config

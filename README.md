@@ -10,17 +10,20 @@ This repository contains the docker compose project that manages the core compon
 - IP2ASN - Internal tool to get the ASN associated with an IP
 - MariaDB - Database for SS13 and other ancilliary services
 - MediaWiki - Wiki for the SS13 server
+  - Also includes a separate instance for SS14
 - Nginx Proxy Manager - Used as webserver ingress for various services and cert renewal
 - ParaCron - CRON scheduler for things like DB backups
 - PostgreSQL - Used to back Authentik and possibly SS14 in the future
 - Public API - The public API for round and profiler stats
 - Taskdaemon - Java project that orchestrates various backend tasks within Paradise
-- Tools NGINX - Webserver to host various tools that use Authentik signin
 - URL Shortener NGINX - Webservice for `paradise13.org` - the URL shortener domain
 - Valkey - Redis fork used as a message broker
+- Various NGINX instances
+  - Tools NGINX - Webserver to host various tools that use Authentik signin
+  - SS14 NGINX - Main landing page for that
 - YTDLP - Hosted `yt-dlp` API for the ingame "Play Internet Sound" feature
-- Robust.Cdn - Versioned SS14 content distribution system.
-- SS14.Admin - SS14 game admin panel.
+- Robust.Cdn - Versioned SS14 content distribution system
+- SS14.Admin - SS14 game admin panel
 
 This is a fairly standard docker compose stack, and most generic instructions regarding docker compose should be applicable here.
 
