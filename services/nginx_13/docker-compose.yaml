@@ -9,6 +9,7 @@ services:
 
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
       - nginx13-webroot:/var/www/html
       - /mnt/espresso_assets:/var/www/html/espresso_assets:ro
 
