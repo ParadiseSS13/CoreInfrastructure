@@ -1,6 +1,6 @@
 services:
   tools_nginx:
-    image: docker-public.paradisestation.org/paradise/paraphp:20260831.202458-464e6d9
+    image: docker-public.paradisestation.org/paradise/paraphp:20261021.205704-fd6e3dd
     container_name: tools_nginx
     restart: unless-stopped
 
