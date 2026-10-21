@@ -1,6 +1,6 @@
 services:
   mediawiki_core:
-    image: docker-public.paradisestation.org/paradise/parawiki:20261015.233432-015a67a
+    image: docker-public.paradisestation.org/paradise/parawiki:20261021.193834-1920594
     container_name: mediawiki_core
     restart: unless-stopped
     # Sync baked assets into shared export volumes on startup, then launch php-fpm
