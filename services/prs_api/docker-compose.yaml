@@ -1,6 +1,6 @@
 services:
   prs_api:
-    image: docker-internal.paradisestation.org/paradise/prs-api:20261024.140607-3e75c29
+    image: docker-internal.paradisestation.org/paradise/prs-api:20261025.113126-4c2dc52
     container_name: prs_api
     ports:
       - "8086:8086"
@@ -17,10 +17,15 @@ services:
       APP_JWT_SECRET: ${APP_JWT_SECRET}
       APP_JWT_AUDIENCE: ${APP_JWT_AUDIENCE}
       GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET}
+      GITHUB_ACCOUNT_TOKEN: ${GITHUB_ACCOUNT_TOKEN}
       DBHOST: ${DBHOST}
       DBUSER: ${DBUSER}
       DBPASS: ${DBPASS}
       DBDB: ${DBDB}
+      PGDBHOST: ${PGDBHOST}
+      PGDBUSER: ${PGDBUSER}
+      PGDBPASS: ${PGDBPASS}
+      PGDBDB: ${PGDBDB}
 
     networks:
       internal:
