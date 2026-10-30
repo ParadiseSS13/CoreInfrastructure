@@ -1,6 +1,6 @@
 services:
   authentik_server:
-    image: authentik/server:2026.8.0-rc6
+    image: authentik/server:2026.8.5
     container_name: authentik_server
     restart: unless-stopped
     command: server
@@ -28,7 +28,7 @@ services:
         ipv4_address: 172.28.0.11
 
   authentik_worker:
-    image: authentik/server:2026.8.0-rc6
+    image: authentik/server:2026.8.5
     container_name: authentik_worker
     restart: unless-stopped
     command: worker
