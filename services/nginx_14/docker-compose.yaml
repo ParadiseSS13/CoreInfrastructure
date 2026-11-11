@@ -1,6 +1,6 @@
 services:
   nginx_14:
-    image: docker-public.paradisestation.org/paradise/paraphp:20261021.205704-fd6e3dd
+    image: docker-public.paradisestation.org/paradise/paraphp:20261111.214057-f9d1d03
     container_name: nginx_14
     restart: unless-stopped
 
@@ -8,7 +8,6 @@ services:
       - "8085:8080"
 
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - nginx14-webroot:/var/www/html
 
     networks:

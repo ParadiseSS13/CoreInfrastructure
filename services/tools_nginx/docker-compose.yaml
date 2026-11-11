@@ -1,6 +1,6 @@
 services:
   tools_nginx:
-    image: docker-public.paradisestation.org/paradise/paraphp:20261021.205704-fd6e3dd
+    image: docker-public.paradisestation.org/paradise/paraphp:20261111.214057-f9d1d03
     container_name: tools_nginx
     restart: unless-stopped
 
@@ -8,7 +8,6 @@ services:
       - "8081:8080"
 
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - toolsnginx-webroot:/var/www/html
       - /mnt/espresso_logs:/mnt/espresso_logs:ro
       - /mnt/espresso_assets:/mnt/espresso_assets:ro
