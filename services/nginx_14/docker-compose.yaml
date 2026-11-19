@@ -1,6 +1,6 @@
 services:
   nginx_14:
-    image: docker-public.paradisestation.org/paradise/paraphp:20261111.214057-f9d1d03
+    image: docker-public.paradisestation.org/paradise/paraphp:20261119.193740-1c53c7b
     container_name: nginx_14
     restart: unless-stopped
 

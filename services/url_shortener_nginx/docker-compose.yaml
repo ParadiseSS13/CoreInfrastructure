@@ -1,6 +1,6 @@
 services:
   url_shortener_nginx:
-    image: docker-public.paradisestation.org/paradise/paraphp:20261021.205704-fd6e3dd
+    image: docker-public.paradisestation.org/paradise/paraphp:20261119.193740-1c53c7b
     container_name: url_shortener_nginx
     restart: unless-stopped
 
