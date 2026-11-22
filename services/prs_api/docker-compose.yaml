@@ -1,6 +1,6 @@
 services:
   prs_api:
-    image: docker-internal.paradisestation.org/paradise/prs-api:20261122.152955-698d96d
+    image: docker-internal.paradisestation.org/paradise/prs-api:20261122.232731-74ef79e
     container_name: prs_api
     ports:
       - "8086:8086"
