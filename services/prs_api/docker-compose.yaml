@@ -1,6 +1,6 @@
 services:
   prs_api:
-    image: docker-internal.paradisestation.org/paradise/prs-api:20261025.131115-6738a47
+    image: docker-internal.paradisestation.org/paradise/prs-api:20261122.152955-698d96d
     container_name: prs_api
     ports:
       - "8086:8086"
@@ -28,6 +28,9 @@ services:
       PGDBDB: ${PGDBDB}
       DISCORD_WEBHOOK_WIKI: ${DISCORD_WEBHOOK_WIKI}
       DISCORD_WEBHOOK_ADMIN: ${DISCORD_WEBHOOK_ADMIN}
+      BYOND_SERVER: ${BYOND_SERVER}
+      BYOND_PORT: ${BYOND_PORT}
+      BYOND_COMMSKEY: ${BYOND_COMMSKEY}
 
     networks:
       internal:
